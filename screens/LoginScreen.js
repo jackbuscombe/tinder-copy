@@ -17,9 +17,11 @@ const LoginScreen = () => {
 	return (
 		<View style={tw`flex-1`}>
 			<ImageBackground source={{ uri: "https://tinder.com/static/tinder.png" }} resizeMode="cover" style={tw`flex-1`}>
-				<TouchableOpacity onPress={signInWithGoogle} style={[tw`absolute bottom-40 w-52 bg-white p-4 rounded-2xl`, { marginHorizontal: "25%" }]}>
-					<Text style={tw`text-center font-semibold`}>Sign in and get swiping</Text>
-				</TouchableOpacity>
+				{!loading && (
+					<TouchableOpacity onPress={signInWithGoogle} style={[tw`absolute bottom-40 w-52 bg-white p-4 rounded-2xl`, { marginHorizontal: "25%" }]}>
+						<Text style={tw`text-center font-bold`}>Sign in and get swiping</Text>
+					</TouchableOpacity>
+				)}
 			</ImageBackground>
 		</View>
 	);

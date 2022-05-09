@@ -1,4 +1,4 @@
-import { View, Text, Button, TouchableOpacity, Image, SafeAreaView, StyleSheet, Platform, StatusBar } from "react-native";
+import { View, Text, Button, TouchableOpacity, Image, SafeAreaView, StyleSheet, Platform, StatusBar, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import useAuth from "../hooks/useAuth";
 import tw from "twrnc";
@@ -129,6 +129,7 @@ const HomeScreen = () => {
 					verticalSwipe={false}
 					animateCardOpacity
 					backgroundColor={"#4FD0E9"}
+					overlayOpacityHorizontalThreshold={Dimensions.get("window").width / 12}
 					onSwipedLeft={(cardIndex) => {
 						swipeLeft(cardIndex);
 					}}
@@ -140,8 +141,18 @@ const HomeScreen = () => {
 							title: "NOPE",
 							style: {
 								label: {
-									textAlign: "right",
+									textAlign: "center",
 									color: "red",
+									backgroundColor: "transparent",
+									borderColor: "red",
+									borderWidth: 8,
+								},
+								wrapper: {
+									flexDirection: "column",
+									alignItems: "flex-end",
+									justifyContent: "flex-start",
+									marginTop: 30,
+									marginLeft: 160,
 								},
 							},
 						},
@@ -150,6 +161,17 @@ const HomeScreen = () => {
 							style: {
 								label: {
 									color: "#4DED30",
+									textAlign: "center",
+									backgroundColor: "transparent",
+									borderColor: "#4DED30",
+									borderWidth: 8,
+								},
+								wrapper: {
+									flexDirection: "column",
+									alignItems: "flex-start",
+									justifyContent: "flex-start",
+									marginTop: 30,
+									marginRight: 160,
 								},
 							},
 						},
